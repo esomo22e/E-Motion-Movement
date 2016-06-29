@@ -6,7 +6,7 @@ class Particle {
   float id;
   //location, speed, size, and direction
   float x, y, s, sz, d;
-  //ne wlocation
+  //new location
   float xp, yp;
   color col; 
   float a = PI/2;
