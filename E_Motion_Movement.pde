@@ -2,7 +2,8 @@ import SimpleOpenNI.*;
 SimpleOpenNI context;
 
 Particle[] flow = new Particle[3000];
-  // global variables to influence the movement of all particles
+
+// global variables to influence the movement of all particles
 float globalX, globalY;
 boolean tracking;
 
@@ -47,16 +48,19 @@ void setup() {
   context.setMirror(true);
  
   
-    reScale = (float) width/kinWidth;
+  reScale = (float) width/kinWidth;
 
+  //to showcase the particles when capturing 
   for (int i = 0; i<flow.length;i++) {
     flow[i] = new Particle(i/10000.0);
   }
 
+  
   background(255);
 
 }
 
+//make the Kinect depth fullscreen
 boolean sketchFullScreen(){
   return true;
 }
