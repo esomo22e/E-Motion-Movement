@@ -4,8 +4,7 @@ Particle[] flow = new Particle[3000];
   // global variables to influence the movement of all particles
 float globalX, globalY;
 boolean tracking;
-//Particle[] noise = new Particle[25];
-//Button b;
+
  
 int opaq = 255;
 int x, y;
@@ -41,9 +40,7 @@ void setup() {
   context.enableDepth();
   context.enableUser();
   context.setMirror(true);
-  /**for (int i = 0; i<noise.length; i++) {
-    noise[i] = new Particle(false);
-  }**/
+ 
   
     reScale = (float) width/kinWidth;
 
@@ -69,14 +66,6 @@ void draw() {
   drawFlowField();
   
 
-
- // b.update();
- /** if (b.buttonevent && opaq == 50) {
-    opaq = 255;
-  }
-  if (b.buttonevent && opaq == 255) {
-    opaq = 50;**/
- // }
 }
 
 void drawFlowField(){
@@ -117,7 +106,7 @@ void onLostUser(SimpleOpenNI curkinect, int userId){
 }
  
 void onVisibleUser(SimpleOpenNI curkinect, int userId){
-  //println("onVisibleUser - userId: " + userId);
+  println("onVisibleUser - userId: " + userId);
 }
  
 
