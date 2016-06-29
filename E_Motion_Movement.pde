@@ -1,36 +1,41 @@
 import SimpleOpenNI.*;
 SimpleOpenNI context;
+
 Particle[] flow = new Particle[3000];
   // global variables to influence the movement of all particles
 float globalX, globalY;
 boolean tracking;
 
- 
+//visibility of the color
 int opaq = 255;
 int x, y;
 int[] userMap;
 
+
 float reScale;
+
+//Kinect display resolution
 int kinWidth = 640;
 int kinHeight = 480;
 
+//The color of the paricles red, black, and indigo
 color red = #8B0000;
-color gold = #DAA520;
 color black = #000000;
 color indigo = #4b0082;
-color aqua = #eee8aa;
-color brown = #a3692d;
+
 color[] colors = {
   red, black, indigo
 };
  
+ 
 void setup() {
+ 
  
  size(displayWidth, displayHeight);
   context = new SimpleOpenNI(this);
   
-    
   
+  //to make sure that the Kinect is connected
   if (context.isInit() == false)
   {
     println("Can't init SimpleOpenNI, maybe the camera is not connected!");
@@ -73,19 +78,22 @@ void drawFlowField(){
   translate(0, (height-kinHeight*reScale)/2);
   scale(reScale);
   
-    //set global variables that influence the particle flow's movement
-    globalX = noise(frameCount * 0.01) * width/2 + width/4;
-    globalY = noise(frameCount * 0.005 + 5) * height;
+  //set global variables that influence the particle flow's movement
+  globalX = noise(frameCount * 0.01) * width/2 + width/4;
+  globalY = noise(frameCount * 0.005 + 5) * height;
     
-    //update and display all particles in the flow
-   for (Particle f : flow) {
+  //update and display all particles in the flow
+  for (Particle f : flow) {
     f.update();
-    }
-             fill(255,255,255,20);
+  }
+  
+  //In order to cause a delay witht the particles
+  fill(255,255,255,20);
   rect(0,0,width,height);
   
 }
 
+/**If you presssed 'S' then you are able to save a motion picture **/
 void keyPressed(){
   
   if(key == 's' || key == 'S'){
