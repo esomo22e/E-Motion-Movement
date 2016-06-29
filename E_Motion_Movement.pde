@@ -26,12 +26,11 @@ color[] colors = {
 };
  
 void setup() {
- // size(640, 480);
+ 
  size(displayWidth, displayHeight);
   context = new SimpleOpenNI(this);
   
-    //colorMode(HSB);
-
+    
   
   if (context.isInit() == false)
   {
